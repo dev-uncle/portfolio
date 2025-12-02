@@ -116,7 +116,6 @@ export default function Header() {
                 }`}
               >
                 {item.label}
-                hello
               </Link>
             );
           })}
