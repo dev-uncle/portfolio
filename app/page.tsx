@@ -8,7 +8,7 @@ export default function Home() {
     <>
       <HeroSection />
 
-      <div className="relative z-20">
+      <div className="relative z-20 overflow-hidden">
         <AboutSection />
         <TechStackSection />
         <EducationSection />

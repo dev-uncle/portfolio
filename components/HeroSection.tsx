@@ -75,6 +75,7 @@ export default function HeroSection() {
         h-[90vh] sm:h-screen 
         w-full flex items-center justify-center 
         z-0 px-4
+        overflow-hidden
       "
     >
       {/* Background */}

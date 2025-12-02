@@ -16,12 +16,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth overflow-x-hidden">
       <body className={`antialiased`}>
-        <main className="relative">
-          <Header />
+        <Header />
 
-          {children}
-          <Footer />
-        </main>
+        {children}
+        <Footer />
       </body>
     </html>
   );
