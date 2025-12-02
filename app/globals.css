@@ -194,7 +194,7 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50 font-mono;
+    @apply border-border  font-mono;
   }
   body {
     @apply bg-background text-foreground;

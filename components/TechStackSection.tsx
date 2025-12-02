@@ -13,13 +13,12 @@ import {
   SiGit,
   SiNodedotjs,
 } from "react-icons/si";
-import { motion, useViewportScroll, useTransform } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 export default function TechStackSection() {
-  const { scrollY } = useViewportScroll();
-
-  const y = useTransform(scrollY, [0, 600], [100, 0]);
-  const opacity = useTransform(scrollY, [0, 600], [0, 1]);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, amount: 0.3 });
 
   const tech = [
     { name: "JavaScript", icon: <SiJavascript /> },
@@ -36,21 +35,44 @@ export default function TechStackSection() {
   ];
 
   return (
-    <motion.section
+    <section
       id="tech-stack"
-      style={{ y, opacity }}
-      className="relative z-20 h-screen py-20 bg-background-secondary"
+      ref={ref}
+      className="relative z-20 py-24 bg-background"
     >
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-2">Tech Stack</h2>
-        <p className="text-muted-foreground">
+      <div className="max-w-7xl mx-auto text-center px-6">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-3xl font-bold mb-2"
+        >
+          Tech Stack
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+          className="text-muted-foreground"
+        >
           The skills, tools, and technologies I am really good at:
-        </p>
+        </motion.p>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mt-10">
           {tech.map((item, i) => (
             <motion.div
               key={i}
+              initial={{ opacity: 0, scale: 0.5, y: 20 }}
+              animate={
+                isInView
+                  ? { opacity: 1, scale: 1, y: 0 }
+                  : { opacity: 0, scale: 0.5, y: 20 }
+              }
+              transition={{
+                duration: 0.5,
+                delay: 0.2 + i * 0.05,
+                ease: "easeOut",
+              }}
               className="
                 group
                 bg-card border border-border p-6 rounded-lg 
@@ -72,6 +94,6 @@ export default function TechStackSection() {
           ))}
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }
