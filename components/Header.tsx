@@ -12,7 +12,6 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   const navigations = [
-    { label: "Home", path: "/#home" },
     { label: "About", path: "/#about" },
     { label: "Tech Stack", path: "/#tech-stack" },
     { label: "Education", path: "/#education" },
