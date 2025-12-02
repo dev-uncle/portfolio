@@ -14,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth overflow-x-auto-hidden">
+    <html lang="en" className="scroll-smooth overflow-x-hidden">
       <body className={`antialiased`}>
         <main className="relative">
           <Header />
