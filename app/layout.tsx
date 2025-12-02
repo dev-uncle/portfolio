@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -14,12 +15,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth overflow-x-hidden">
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className="scroll-smooth overflow-x-hidden"
+    >
       <body className={`antialiased min-h-screen`}>
-        <Header />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
 
-        {children}
-        <Footer />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

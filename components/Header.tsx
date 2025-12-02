@@ -5,9 +5,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { ModeToggle } from "./mode-toggle";
+import { useTheme } from "next-themes";
 
 export default function Header() {
   const pathname = usePathname();
+  const { theme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -40,7 +43,7 @@ export default function Header() {
         {/* Logo */}
         <Link href={"/"}>
           <Image
-            src={"/logo.png"}
+            src={theme === "light" ? "/logo.png" : "/logo-white.png"}
             alt="logo"
             width={512}
             height={512}
@@ -49,36 +52,38 @@ export default function Header() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex space-x-6">
-          {navigations.map((item, index) => {
-            const isActive = pathname === item.path;
-            return (
-              <Link
-                key={index}
-                href={item.path}
-                className="relative group text-sm font-medium transition-colors duration-200"
-              >
-                <span
-                  className={`${
-                    isActive
-                      ? "text-foreground"
-                      : "text-muted-foreground group-hover:text-foreground"
-                  }`}
+        <div className="hidden md:flex items-center gap-8">
+          <nav className="flex space-x-6">
+            {navigations.map((item, index) => {
+              const isActive = pathname === item.path;
+              return (
+                <Link
+                  key={index}
+                  href={item.path}
+                  className="relative group text-sm font-medium transition-colors duration-200"
                 >
-                  {item.label.toUpperCase()}
-                </span>
-
-                <span
-                  className={`absolute left-0 -bottom-1 w-full h-0.5 bg-foreground transform transition-transform duration-300 origin-left ${
-                    isActive
-                      ? "scale-x-100"
-                      : "scale-x-0 group-hover:scale-x-100"
-                  }`}
-                />
-              </Link>
-            );
-          })}
-        </nav>
+                  <span
+                    className={`${
+                      isActive
+                        ? "text-foreground"
+                        : "text-muted-foreground group-hover:text-foreground"
+                    }`}
+                  >
+                    {item.label.toUpperCase()}
+                  </span>
+                  <span
+                    className={`absolute left-0 -bottom-1 w-full h-0.5 bg-foreground transform transition-transform duration-300 origin-left ${
+                      isActive
+                        ? "scale-x-100"
+                        : "scale-x-0 group-hover:scale-x-100"
+                    }`}
+                  />
+                </Link>
+              );
+            })}
+          </nav>
+          <ModeToggle />
+        </div>
 
         {/* Mobile Menu Button */}
         <button
@@ -118,6 +123,10 @@ export default function Header() {
               </Link>
             );
           })}
+          {/* Mode Toggle for mobile */}
+          <div className="pt-2">
+            <ModeToggle />
+          </div>
         </nav>
       </div>
     </header>

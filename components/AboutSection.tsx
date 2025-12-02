@@ -3,10 +3,12 @@
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { useTheme } from "next-themes";
 
 export default function AboutSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.3 });
+  const { theme } = useTheme();
 
   return (
     <section
@@ -107,7 +109,7 @@ export default function AboutSection() {
           >
             <div className="relative aspect-square w-full max-w-md mx-auto overflow-hidden">
               <Image
-                src="/logo.png"
+                src={theme === "light" ? "/logo.png" : "/logo-white.png"}
                 alt="Jhon Brian Arce - UncleDev"
                 fill
                 className="object-cover"
