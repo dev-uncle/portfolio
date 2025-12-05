@@ -16,7 +16,9 @@ export default function Header() {
 
   const navigations = [
     { label: "About", path: "/#about" },
-    { label: "Tech Stack", path: "/#tech-stack" },
+    { label: "Skills", path: "/#skills" },
+    { label: "Project", path: "/#project" },
+    { label: "Service", path: "/#services" },
     { label: "Education", path: "/#education" },
     { label: "Contact", path: "/#contact" },
   ];

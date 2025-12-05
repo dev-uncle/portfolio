@@ -17,7 +17,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import GlitchText from "./GlitchText";
 
-export default function TechStackSection() {
+export default function SkillsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.3 });
 
@@ -37,7 +37,7 @@ export default function TechStackSection() {
 
   return (
     <section
-      id="tech-stack"
+      id="skills"
       ref={ref}
       className="relative z-20 py-24 bg-background"
     >
@@ -48,7 +48,7 @@ export default function TechStackSection() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-2xl md:text-3xl font-bold mb-2"
         >
-          <GlitchText>Tech Stack</GlitchText>
+          <GlitchText>Skills</GlitchText>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}

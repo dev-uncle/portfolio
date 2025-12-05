@@ -1,6 +1,5 @@
 .glitch {
   color: var(--foreground);
-  white-space: nowrap;
   position: relative;
   user-select: none;
   cursor: pointer;
