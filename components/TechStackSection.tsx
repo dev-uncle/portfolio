@@ -15,6 +15,7 @@ import {
 } from "react-icons/si";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import GlitchText from "./GlitchText";
 
 export default function TechStackSection() {
   const ref = useRef(null);
@@ -45,9 +46,9 @@ export default function TechStackSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-3xl font-bold mb-2"
+          className="text-2xl md:text-3xl font-bold mb-2"
         >
-          Tech Stack
+          <GlitchText>Tech Stack</GlitchText>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}

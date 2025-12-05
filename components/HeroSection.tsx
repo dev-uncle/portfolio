@@ -9,6 +9,7 @@ import { Typewriter } from "react-simple-typewriter";
 import Particles from "./particles";
 import { useRouter } from "next/navigation";
 import { useRef, useEffect, useState } from "react";
+import GlitchText from "@/components/GlitchText";
 
 export default function HeroSection() {
   const { scrollY } = useScroll();
@@ -110,7 +111,8 @@ export default function HeroSection() {
             text-3xl sm:text-4xl md:text-5xl
           "
         >
-          Jhon Brian Verastigue Arce
+          {/* Jhon Brian Verastigue Arce */}
+          <GlitchText>Jhon Brian Verastigue Arce</GlitchText>
         </motion.h1>
 
         {/* Typewriter Role */}

@@ -18,6 +18,7 @@ export default function Header() {
     { label: "About", path: "/#about" },
     { label: "Tech Stack", path: "/#tech-stack" },
     { label: "Education", path: "/#education" },
+    { label: "Contact", path: "/#contact" },
   ];
 
   // Detect scroll

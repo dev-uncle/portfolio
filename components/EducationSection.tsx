@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
+import GlitchText from "./GlitchText";
 
 interface EducationItem {
   school: string;
@@ -76,7 +77,9 @@ export default function EducationSection() {
       {/* Sticky Header */}
       <div className="sticky top-16 z-10 bg-background-secondary/95 backdrop-blur-sm py-6 mb-8">
         <div className="max-w-7xl mx-auto text-center px-4 md:px-6">
-          <h2 className="text-2xl md:text-3xl font-bold mb-2">Education</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-2">
+            <GlitchText>Education</GlitchText>
+          </h2>
           <p className="text-sm md:text-base text-muted-foreground">
             My academic background and certifications throughout the years.
           </p>

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { useTheme } from "next-themes";
+import GlitchText from "./GlitchText";
 
 export default function AboutSection() {
   const ref = useRef(null);
@@ -23,9 +24,10 @@ export default function AboutSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-3xl font-bold mb-2"
+            className="text-2xl text-center md:text-3xl font-bold  mb-2"
           >
-            About
+            {/* About */}
+            <GlitchText>About</GlitchText>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
