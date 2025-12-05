@@ -55,7 +55,7 @@ export default function ServiceSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-            className="text-3xl md:text-5xl font-bold mb-4 font-sans"
+            className="text-2xl text-center md:text-3xl font-bold mb-2"
           >
             <GlitchText>Services</GlitchText>
           </motion.h2>
